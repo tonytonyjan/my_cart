@@ -16,6 +16,7 @@
       <td><%= number_to_currency line_item.unit_price %></td>
       <td><%= line_item.quantity %></td>
       <td><%= number_to_currency line_item.subtotal %></td>
+      <td><%= link_to 'Delete', line_item, method: :delete %></td>
     </tr>
     <% end %>
     <tr>

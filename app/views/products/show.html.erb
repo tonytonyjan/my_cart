@@ -9,3 +9,8 @@
   <dd><%= @product.stock %></dd>
 </dl>
 
+<%= form_for @line_item do |f| %>
+  <%= f.number_field :quantity %>
+  <%= f.hidden_field :product_id %>
+  <%= f.submit 'Add to Cart' %>
+<% end %>
