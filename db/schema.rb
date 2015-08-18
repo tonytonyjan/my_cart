@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 20150818110441) do
     t.integer  "order_id"
     t.integer  "cart_id"
     t.integer  "product_id"
-    t.decimal  "unit_price"
-    t.integer  "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.decimal  "unit_price",             null: false
+    t.integer  "quantity",   default: 1, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
@@ -35,19 +35,19 @@ ActiveRecord::Schema.define(version: 20150818110441) do
   create_table "orders", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
-    t.string   "status"
+    t.string   "status",         default: "新訂單", null: false
     t.string   "payment_method"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.decimal  "price"
-    t.integer  "stock"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "name",                      null: false
+    t.text     "description",               null: false
+    t.decimal  "price",       default: 0.0, null: false
+    t.integer  "stock",                     null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
 end
