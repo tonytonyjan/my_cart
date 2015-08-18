@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration
     create_table :orders do |t|
       t.string :name
       t.string :address
-      t.string :status
+      t.string :status, null: false, default: '新訂單'
       t.string :payment_method
 
       t.timestamps null: false
