@@ -1,0 +1,12 @@
+one:
+  order: one
+  cart: one
+  product: book
+  unit_price: 250
+  quantity: 3
+two:
+  order: one
+  cart: one
+  product: t_shirt
+  unit_price: 500
+  quantity: 5

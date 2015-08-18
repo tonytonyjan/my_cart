@@ -1,0 +1,10 @@
+book:
+  name: Ruby on Rails 自習手冊
+  description: 好書好書
+  price: 250
+  stock: 100
+t_shirt:
+  name: 繼承車概念衣
+  description: 好衣好衣
+  price: 500
+  stock: 100
