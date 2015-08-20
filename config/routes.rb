@@ -10,4 +10,7 @@ Rails.application.routes.draw do
     resources :orders
     resources :products
   end
+
+  post 'allpay/result'
+  post 'allpay/return'
 end

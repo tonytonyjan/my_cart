@@ -31,3 +31,5 @@
   <li><%= trade.trade_number %> <%= trade.paid? ? :已付款 : :未付款 %></li>
   <% end %>
 </ul>
+
+<%= link_to 'Checkout', checkout_order_path(@order) %>
