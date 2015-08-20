@@ -1,0 +1,8 @@
+paid_trade:
+  order: paid_order
+  trade_number: abcde
+  paid: true
+unpaid_trade:
+  order: unpaid_order
+  trade_number: fghijk
+  paid: false
