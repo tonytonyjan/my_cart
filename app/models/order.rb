@@ -6,4 +6,8 @@ class Order < ActiveRecord::Base
   def total
     line_items.to_a.sum(&:subtotal)
   end
+
+  def paid?
+    trades.exists? paid: true
+  end
 end
