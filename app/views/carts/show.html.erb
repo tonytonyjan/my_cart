@@ -1,0 +1,32 @@
+<h1>Carts#show</h1>
+<p>Find me in app/views/carts/show.html.erb</p>
+<hr>
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Unit Price</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_cart.line_items.each do |line_item| %>
+    <tr>
+      <td><%= line_item.product.name %></td>
+      <td><%= number_to_currency line_item.unit_price %></td>
+      <td><%= line_item.quantity %></td>
+      <td><%= number_to_currency line_item.subtotal %></td>
+      <td><%= link_to 'Delete', line_item, method: :delete %></td>
+    </tr>
+    <% end %>
+    <tr>
+      <td colspan="2"></td>
+      <td>Total</td>
+      <td><%= number_to_currency current_cart.total %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to 'New Order', new_order_path %>

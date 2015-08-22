@@ -1,0 +1,37 @@
+<h1>Orders#show</h1>
+<p>Find me in app/views/orders/show.html.erb</p>
+<hr>
+<h1>Order #<%= @order.id %></h1>
+<table>
+  <thead>
+    <tr>
+      <th>Product</th> <th>Unit Price</th> <th>Quantity</th> <th>Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.line_items.each do |line_item| %>
+      <tr>
+        <td><%= link_to line_item.product.name, line_item.product %></td>
+        <td><%= line_item.unit_price %></td>
+        <td><%= line_item.quantity %></td>
+        <td><%= line_item.subtotal %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td colspan="2"></td>
+      <td>total</td>
+      <td><%= @order.total %></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h1>Trades</h1>
+<hr>
+<ul>
+  <% @order.trades.each do |trade| %>
+  <li><%= trade.trade_number %> <%= trade.paid? ? :已付款 : :未付款 %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Checkout', checkout_order_path(@order) %>
