@@ -1,0 +1,36 @@
+<h1>app/views/carts/show.html.erb</h1>
+<h1>My Cart</h1>
+<hr>
+<%= form_for current_cart do |f| %>
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Unit Price</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= f.fields_for :line_items do |ff| %>
+      <% line_item = ff.object %>
+      <tr>
+        <td><%= line_item.product.name %></td>
+        <td><%= number_to_currency line_item.unit_price %></td>
+        <td><%= ff.number_field :quantity %></td>
+        <td><%= number_to_currency line_item.subtotal %></td>
+        <td><%= link_to 'Delete', line_item, method: :delete %></td>
+        <td></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td colspan="2"></td>
+      <td>Total</td>
+      <td><%= number_to_currency current_cart.total %></td>
+    </tr>
+  </tbody>
+</table>
+<%= f.submit '更新購物車' %>
+<% end %>
+<hr>
+<%= link_to '產生訂單', new_order_path %>
