@@ -1,0 +1,9 @@
+<h1>app/views/products/index.html.erb</h1>
+<hr>
+<h1>My Products</h1>
+<hr>
+<ul>
+  <% @products.each do |product| %>
+  <li><%= link_to product.name, product %> <%= number_to_currency product.price %></li>
+  <% end %>
+</ul>
